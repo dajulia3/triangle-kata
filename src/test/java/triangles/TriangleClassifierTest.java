@@ -20,12 +20,6 @@ public class TriangleClassifierTest {
         TriangleClassifier classifier = new TriangleClassifier();
         int id = classifier.identifyTriangle(1, 1, 2);
         assertThat("isosceles triangle should return id of 2", id, equalTo(2));
-        id = classifier.identifyTriangle(1, 2, 1);
-        assertThat("isosceles triangle should return id of 2", id, equalTo(2));
-        id = classifier.identifyTriangle(2, 1, 1);
-        assertThat("isosceles triangle should return id of 2", id, equalTo(2));
-        id = classifier.identifyTriangle(1, 2, 2);
-        assertThat("isosceles triangle should return id of 2", id, equalTo(2));
     }
 
     @Test
@@ -43,18 +37,6 @@ public class TriangleClassifierTest {
             fail();
         } catch (TriangleClassifier.TriangleMalformedException e) {
         }
-
-        try {
-            classifier.identifyTriangle(1, 0, 3);
-            fail();
-        } catch (TriangleClassifier.TriangleMalformedException e) {
-        }
-
-        try {
-            classifier.identifyTriangle(1, 1, 0);
-            fail();
-        } catch (TriangleClassifier.TriangleMalformedException e) {
-        }
     }
 
     @Test
@@ -62,18 +44,6 @@ public class TriangleClassifierTest {
         TriangleClassifier classifier = new TriangleClassifier();
         try {
             classifier.identifyTriangle(-1, 2, 3);
-            fail();
-        } catch (TriangleClassifier.TriangleMalformedException e) {
-        }
-
-        try {
-            classifier.identifyTriangle(1, -1, 3);
-            fail();
-        } catch (TriangleClassifier.TriangleMalformedException e) {
-        }
-
-        try {
-            classifier.identifyTriangle(1, 1, -1);
             fail();
         } catch (TriangleClassifier.TriangleMalformedException e) {
         }
