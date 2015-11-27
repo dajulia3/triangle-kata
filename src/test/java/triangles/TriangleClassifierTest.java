@@ -12,7 +12,7 @@ public class TriangleClassifierTest {
     public void triangleType_returns1_whentriangleIsEquilateral() {
         TriangleClassifier classifier = new TriangleClassifier();
         int id = classifier.identifyTriangle(1, 1, 1);
-        assertThat("equalateral triangle should return id of 1", id, equalTo(1));
+        assertThat("equilateral triangle should return id of 1", id, equalTo(1));
     }
 
     @Test
