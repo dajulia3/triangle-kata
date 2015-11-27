@@ -30,6 +30,6 @@ public class TriangleClassifier {
         return sides;
     }
 
-    public class TriangleMalformedException extends RuntimeException {
+    public static class TriangleMalformedException extends RuntimeException {
     }
 }
