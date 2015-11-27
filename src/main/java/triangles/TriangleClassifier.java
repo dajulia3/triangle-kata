@@ -1,27 +1,28 @@
 package triangles;
 
-import javafx.collections.transformation.SortedList;
-
 import java.util.*;
 
 public class TriangleClassifier {
 
     public int identifyTriangle(int a, int b, int c) {
-        List<Integer> sides = sortedSides(a, b, c);
-
-        if (sides.get(0) + sides.get(1) <= sides.get(2)) {
+        List<Integer> sides = sidesList(a, b, c);
+        if (triangleIsImpossible(sides)) {
             throw new TriangleMalformedException();
         }
 
         return new HashSet<>(sides).size();
     }
 
-    private List<Integer> sortedSides(int a, int b, int c) {
+    private boolean triangleIsImpossible(List<Integer> sides) {
+        Collections.sort(sides);
+        return sides.get(0) + sides.get(1) <= sides.get(2);
+    }
+
+    private List<Integer> sidesList(int a, int b, int c) {
         List<Integer> sides = new ArrayList<>();
         sides.add(a);
         sides.add(b);
         sides.add(c);
-        Collections.sort(sides);
         return sides;
     }
 

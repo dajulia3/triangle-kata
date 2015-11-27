@@ -25,7 +25,7 @@ public class TriangleClassifierTest {
     @Test
     public void triangleType_returns3_whentriangleIsScalene() {
         TriangleClassifier classifier = new TriangleClassifier();
-        int id = classifier.identifyTriangle(3, 4, 5);
+        int id = classifier.identifyTriangle(5, 4, 3);
         assertThat("scalene triangle should return id of 3", id, equalTo(3));
     }
 
@@ -43,7 +43,7 @@ public class TriangleClassifierTest {
     public void triangleType_throwsException_whenTriangleViolatesTriangleInequalityTheorem(){
         TriangleClassifier classifier = new TriangleClassifier();
         try {
-            classifier.identifyTriangle(1, 2, 3);
+            classifier.identifyTriangle(3, 2, 1);
             fail();
         } catch (TriangleClassifier.TriangleMalformedException e) {
         }
