@@ -10,6 +10,10 @@ public class TriangleClassifier {
             throw new TriangleMalformedException();
         }
 
+        return triangleClassificationId(sides);
+    }
+
+    private int triangleClassificationId(List<Integer> sides) {
         return new HashSet<>(sides).size();
     }
 
