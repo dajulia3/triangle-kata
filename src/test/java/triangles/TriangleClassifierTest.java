@@ -24,6 +24,8 @@ public class TriangleClassifierTest {
         assertThat("isosceles triangle should return id of 2", id, equalTo(2));
         id = classifier.identifyTriangle(2, 1, 1);
         assertThat("isosceles triangle should return id of 2", id, equalTo(2));
+        id = classifier.identifyTriangle(1, 2, 2);
+        assertThat("isosceles triangle should return id of 2", id, equalTo(2));
     }
 
     @Test

@@ -1,26 +1,27 @@
 package triangles;
 
-import java.util.HashSet;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import javafx.collections.transformation.SortedList;
+
+import java.util.*;
 
 public class TriangleClassifier {
 
-    public static final int ISOSCELES_TRIANGLE_ID = 1;
-    public static final int EQUILATERAL_TRIANGLE_ID = 2;
-    public static final int SCALENE_TRIANGLE_ID = 3;
-
     public int identifyTriangle(int a, int b, int c) {
-        if (a <= 0 || b <= 0 || c <= 0) {
+        SortedSet<Integer> sides = sortedSides(a, b, c);
+
+        if (sides.first() <= 0 ) {
             throw new TriangleMalformedException();
         }
 
-        if (a == b && b == c) {
-            return ISOSCELES_TRIANGLE_ID;
-        } else if (a == b || a == c || b == c) {
-            return EQUILATERAL_TRIANGLE_ID;
-        }
-        return SCALENE_TRIANGLE_ID;
+        return sides.size();
+    }
+
+    private SortedSet<Integer> sortedSides(int a, int b, int c) {
+        SortedSet<Integer> sides = new TreeSet<>();
+        sides.add(a);
+        sides.add(b);
+        sides.add(c);
+        return sides;
     }
 
     public class TriangleMalformedException extends RuntimeException {
