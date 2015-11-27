@@ -30,16 +30,6 @@ public class TriangleClassifierTest {
     }
 
     @Test
-    public void triangleType_throwsException_whenTriangleSideIsZeroHeight() {
-        TriangleClassifier classifier = new TriangleClassifier();
-        try {
-            classifier.identifyTriangle(0, 2, 3);
-            fail();
-        } catch (TriangleClassifier.TriangleMalformedException e) {
-        }
-    }
-
-    @Test
     public void triangleType_throwsException_whenTriangleSideIsNegative(){
         TriangleClassifier classifier = new TriangleClassifier();
         try {
