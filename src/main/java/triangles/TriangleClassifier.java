@@ -7,20 +7,21 @@ import java.util.*;
 public class TriangleClassifier {
 
     public int identifyTriangle(int a, int b, int c) {
-        SortedSet<Integer> sides = sortedSides(a, b, c);
+        List<Integer> sides = sortedSides(a, b, c);
 
-        if (sides.first() <= 0 ) {
+        if (sides.get(0) + sides.get(1) <= sides.get(2)) {
             throw new TriangleMalformedException();
         }
 
-        return sides.size();
+        return new HashSet<>(sides).size();
     }
 
-    private SortedSet<Integer> sortedSides(int a, int b, int c) {
-        SortedSet<Integer> sides = new TreeSet<>();
+    private List<Integer> sortedSides(int a, int b, int c) {
+        List<Integer> sides = new ArrayList<>();
         sides.add(a);
         sides.add(b);
         sides.add(c);
+        Collections.sort(sides);
         return sides;
     }
 
